@@ -10,13 +10,24 @@
 </style>
 
 <script>
+import axios from "axios";
+
 export default {
   data: function() {
     return {
       message: "Welcome to Vue.js!"
     };
   },
-  created: function() {},
-  methods: {}
+  created: function() {
+    this.indexContacts();
+  },
+  methods: {
+    indexContacts: function() {
+      console.log('contacts index');
+      axios.get('/api/contacts').then(response => {
+        console.log(response.data)
+      })
+    }
+  }
 };
 </script>
